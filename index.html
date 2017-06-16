@@ -5,17 +5,22 @@ content_slim: true
 ---
 <div class="content-slim">
   <ul class="post-list">
-    {% for post in site.posts reversed %}
+    {% for post in site.posts %}
       <li>
-        <h2>
+        <h1>
           {% if post.tags contains 'micropost' %}
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.date | date: "%D %I:%M %p" }}</a>
           {% else %}
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          <span class="post-meta">{{ post.date | date: "%b, %Y" }}</span>
+          <a class="post-link post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          <span class="post-meta">{{ post.date | date: "%b %Y" }}</span>
           {% endif %}
-        </h2>
+        </h1>
+        {% assign keyphoto = post.images[0] %}
+        <img class="keyphoto" src="{{site.baseurl}}{{keyphoto.url}}" />
         <p class="post-excerpt">{{ post.excerpt | remove: '<p>' | remove: '</p>' }} <a href="{{ post.url | prepend: site.baseurl }}">[Continue]</a></p>
+        <div class="sixcolor-line">
+          <!-- <center><img src="{{site.baseurl}}/assets/img/alogo.png" srcset="{{site.baseurl}}/assets/img/alogo-2x.png 2x" /></center> -->
+        </div>
     {% endfor %}
   </ul>
   <!-- pagination -->
