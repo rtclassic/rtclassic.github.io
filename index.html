@@ -8,19 +8,23 @@ content_slim: true
     {% for post in site.posts %}
       <li>
         <h1>
-          {% if post.tags contains 'micropost' %}
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.date | date: "%D %I:%M %p" }}</a>
-          {% else %}
+
           <a class="post-link post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          <span class="post-meta">{{ post.date | date: "%b %Y" }}</span>
-          {% endif %}
+
         </h1>
+         <p> <span class="post-meta">{{ post.date | date: "%b %Y" }}{% if post.author %} • by {{ post.author }}{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}</span> </p>
+        <div class="sixcolor-line thin footer"> </div>
+
         {% assign keyphoto = post.images[0] %}
+        <a href="{{ post.url | prepend: site.baseurl }}">
         <img class="keyphoto" src="{{site.baseurl}}{{keyphoto.url}}" />
+        </a>
         <p class="post-excerpt">{{ post.excerpt | remove: '<p>' | remove: '</p>' }} <a href="{{ post.url | prepend: site.baseurl }}">[Continue]</a></p>
+        {% if forloop.last == false %}
         <div class="sixcolor-line">
           <!-- <center><img src="{{site.baseurl}}/assets/img/alogo.png" srcset="{{site.baseurl}}/assets/img/alogo-2x.png 2x" /></center> -->
         </div>
+        {% endif %}
     {% endfor %}
   </ul>
   <!-- pagination -->

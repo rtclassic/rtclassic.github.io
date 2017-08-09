@@ -9,11 +9,45 @@
 
     <div class="page-content">
       <div class="wrapper">
+
+        <!-- For Post Header -->
+        {% if page.tags contains 'post' %}
+          <header class="post-header">
+            {% if page.tags contains 'micropost' %}
+            {% else %}
+              <h1 class="post-title">{{ page.title }}</h1>
+            {% endif %}
+            <p class="post-meta">{{ page.date | date: "%b %Y" }}{% if page.author %} • by {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+            <div class="sixcolor-line thin" />
+          </header>
+        {% endif %}
+        <!-- End Post Header -->
+
+
         <div class="content">
           {{content}}
         </div>
+        <div class="sidebar">
+          <div class="sixcolor-line thin vertical"></div>
+          <div class="sidebar-title">
+            <h2>Guides</h2>
+          </div>
+        </div>
       </div>
     </div>
+
+    {% if page.tags contains 'post' %}
+      <!-- Post Footer -->
+      <center><div class="sixcolor-line slim"></div></center>
+      <center><a href="{{site.baseurl}}/">Back Home</a></center>
+
+      {% if page.next_part %}
+      <hr>
+      <p class="next_link">Continued in <a href="{{ page.next_part | prepend: site.baseurl }}">{{page.next_title}}</a></p>
+      {% endif %}
+      <!-- End Post Footer -->
+      {% endif %}
+
 
     {% include footer.html %}
 
