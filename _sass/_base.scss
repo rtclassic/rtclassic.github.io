@@ -23,6 +23,10 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 
+p {
+    font-family: $base-font-family-para;
+}
+
 
 /**
  * Set `margin-bottom` to maintain vertical rhythm
