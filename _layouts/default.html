@@ -12,14 +12,7 @@
 
         <!-- For Post Header -->
         {% if page.tags contains 'post' %}
-          <header class="post-header">
-            {% if page.tags contains 'micropost' %}
-            {% else %}
-              <h1 class="post-title">{{ page.title }}</h1>
-            {% endif %}
-            <p class="post-meta">{{ page.date | date: "%b %Y" }}{% if page.author %} • by {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-            <div class="sixcolor-line thin" />
-          </header>
+        
         {% endif %}
         <!-- End Post Header -->
 
@@ -27,12 +20,13 @@
         <div class="content">
           {{content}}
         </div>
-        <div class="sidebar">
+<!--         <div class="sidebar">
           <div class="sixcolor-line thin vertical"></div>
           <div class="sidebar-title">
             <h2>Guides</h2>
           </div>
         </div>
+ -->     
       </div>
     </div>
 

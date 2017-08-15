@@ -203,12 +203,12 @@ pre {
 .content {
 
     // Sidebar Support
-    max-width: 36em;
-    padding-right: 2em;
-    display: table-cell;
+    //max-width: 36em;
+    //padding-right: 2em;
+    //display: table-cell;
 
     // No sidebar support
-    //display: block;
+    display: block;
 
     .content-slim {
         max-width: 700px;
@@ -217,13 +217,13 @@ pre {
     }
 
     @include media-query($on-palm){
-        display: block;
-        max-width: 52em;
-        padding-right: 0em;
+//        display: block;
+//        max-width: 52em;
+//        padding-right: 0em;
 
     // No Sidebar Support
-    //    padding-right: 20px;
-    //    padding-left: 20px;
+       padding-right: 20px;
+       padding-left: 20px;
     }
 }
 
